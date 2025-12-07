@@ -1,0 +1,29 @@
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark .main-header {
+  background: rgba(11, 18, 32, 0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

@@ -5,179 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intellicode — Venta de Proyectos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header class="main-header">
-    <div class="brand">Intellicode</div>
-    <nav>
-      <button id="btnTheme" class="icon-btn" title="Cambiar tema">🌗</button>
-      <button id="openLogin" class="btn primary">Iniciar Sesión</button>
-      <button id="openRegister" class="btn">Registrarse</button>
-      <div id="headerUser" class="hidden header-user">
-        <img id="headerAvatar" src="" alt="avatar" class="avatar small hidden">
-        <span id="headerName" class="header-name"></span>
-        <button id="headerLogout" class="btn small danger">Cerrar sesión</button>
-      </div>
-    </nav>
-  </header>
+  <!-- Componentes -->
+  <div id="app">
+    <!-- Header -->
+    <div data-include="components/header.html"></div>
 
-  <main class="container">
-    <section id="hero" class="hero">
-      <h1>Construimos proyectos digitales para tu negocio</h1>
-      <p>Plataforma para vender y comprar proyectos. Admin, vendedores y compradores en un solo lugar.</p>
-      <div class="hero-actions">
-        <button id="ctaRegister" class="btn large">Comenzar</button>
-      </div>
-    </section>
+    <main class="container">
+      <!-- Hero -->
+      <div data-include="components/hero.html"></div>
 
-    <section id="features" class="cards">
-      <article class="card">
-        <h3>Roles</h3>
-        <p>Usuario (comprador), Vendedor (requiere membresía) y Admin (gestión de proyectos).</p>
-      </article>
-      <article class="card">
-        <h3>Paneles</h3>
-        <p>Paneles separados para cada rol con herramientas adaptadas.</p>
-      </article>
-      <article class="card">
-        <h3>Subida de Proyectos</h3>
-        <p>Categoría, nombre, descripción, precio en USD, ZIP, fotos y video.</p>
-      </article>
-    </section>
+      <!-- Features -->
+      <div data-include="components/features.html"></div>
 
-    <section id="app-views">
-      <!-- User Dashboard -->
-      <div id="userView" class="panel hidden">
-        <div class="panel-header">
-            <h2>Panel de Usuario</h2>
-            <div>
-              <span id="userGreeting"></span>
-            </div>
-          </div>
-        <div id="userContent">
-          <h3>Mis Proyectos</h3>
-          <div id="userProjects" class="list"></div>
-        </div>
+      <!-- Paneles -->
+      <div id="app-views">
+        <div data-include="components/panels/user-panel.html"></div>
+        <div data-include="components/panels/seller-panel.html"></div>
+        <div data-include="components/panels/admin-panel.html"></div>
       </div>
+    </main>
 
-      <!-- Seller Dashboard -->
-      <div id="sellerView" class="panel hidden">
-        <div class="panel-header">
-          <h2>Panel de Vendedor <span id="sellerBadge" class="badge">★ Requiere membresía</span></h2>
-          <div>
-            <button id="logoutBtn2" class="btn small danger">Cerrar sesión</button>
-          </div>
-        </div>
-        <div class="seller-grid">
-          <div class="card">
-            <h4>Perfil</h4>
-            <div id="sellerProfile" class="profile">
-              <img id="sellerPhoto" src="" alt="foto" class="avatar hidden">
-              <p id="sellerName"></p>
-              <p id="sellerExp"></p>
-              <input id="sellerPhotoInput" type="file" accept="image/*">
-              <textarea id="sellerExperience" placeholder="Describe tu experiencia"></textarea>
-              <button id="saveSellerProfile" class="btn">Guardar perfil</button>
-            </div>
-          </div>
-          <div class="card">
-            <h4>Subir Proyecto</h4>
-            <form id="sellerUploadForm" class="form">
-              <label>Categoría <input name="category" required></label>
-              <label>Nombre <input name="title" required></label>
-              <label>Descripción <textarea name="description" required></textarea></label>
-              <label>Precio (USD) <input name="price" type="number" min="0" required></label>
-              <label>Archivo ZIP <input name="zip" type="file" accept=".zip"></label>
-              <label>Fotos/Videos <input name="media" type="file" accept="image/*,video/*" multiple></label>
-              <button type="submit" class="btn primary">Publicar</button>
-            </form>
-          </div>
-          <div class="card">
-            <h4>Estadísticas</h4>
-            <div id="sellerStats">
-              <p>Ganancias (últimos 30 días): <strong id="sellerEarnings">$0</strong></p>
-              <p>Proyectos publicados: <strong id="sellerCount">0</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Modales -->
+    <div data-include="components/modals/login-modal.html"></div>
+    <div data-include="components/modals/register-modal.html"></div>
 
-      <!-- Admin Dashboard -->
-      <div id="adminView" class="panel hidden">
-        <div class="panel-header">
-          <h2>Panel Admin</h2>
-          <div>
-            <button id="logoutBtn3" class="btn small danger">Cerrar sesión</button>
-          </div>
-        </div>
-        <div class="card">
-          <h4>Subir Proyecto</h4>
-          <form id="adminUploadForm" class="form">
-            <label>Categoría <input name="category" required></label>
-            <label>Nombre <input name="title" required></label>
-            <label>Descripción <textarea name="description" required></textarea></label>
-            <label>Precio (USD) <input name="price" type="number" min="0" required></label>
-            <label>Archivo ZIP <input name="zip" type="file" accept=".zip"></label>
-            <label>Fotos/Videos <input name="media" type="file" accept="image/*,video/*" multiple></label>
-            <button type="submit" class="btn primary">Publicar</button>
-          </form>
-        </div>
-        <div class="card">
-          <h4>Proyectos publicados</h4>
-          <div id="adminProjects" class="list"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Login Modal (flotante) -->
-  <div id="modalLogin" class="modal hidden">
-    <div class="modal-card floating">
-      <button id="closeLogin" class="modal-close">×</button>
-      <h3>Iniciar Sesión</h3>
-      <form id="loginForm" class="form">
-        <label>Correo <input name="email" type="email" required></label>
-        <label>Contraseña <input name="password" type="password" required></label>
-        <button type="submit" class="btn primary">Entrar</button>
-      </form>
-      <div style="text-align:center;margin-top:12px;font-size:13px">
-        ¿No tienes cuenta? <button type="button" class="toggleModal" data-show="modalRegister" style="background:none;border:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0;font-size:13px">Registrarse aquí</button>
-      </div>
-    </div>
+    <!-- Footer -->
+    <div data-include="components/footer.html"></div>
   </div>
 
-  <!-- Register Modal -->
-  <div id="modalRegister" class="modal hidden">
-    <div class="modal-card floating">
-      <button id="closeRegister" class="modal-close">×</button>
-      <h3>Registro</h3>
-      <form id="registerForm" class="form">
-        <label>Nombre <input name="name" required></label>
-        <label>Correo <input name="email" type="email" required></label>
-        <label>Contraseña <input name="password" type="password" required></label>
-        <label>Edad <input name="age" type="number" min="0"></label>
-        <label>Ocupación <input name="occupation"></label>
-        <label>Rol
-          <select name="role">
-            <option value="buyer">Comprador</option>
-            <option value="seller">Vendedor (requiere membresía)</option>
-            <option value="admin">Admin (código requerido)</option>
-          </select>
-        </label>
-        <label>Código Admin (opcional) <input name="adminCode" placeholder="si eres admin pon el código"></label>
-        <button type="submit" class="btn primary">Crear cuenta</button>
-      </form>
-      <div style="text-align:center;margin-top:12px;font-size:13px">
-        ¿Ya tienes cuenta? <button type="button" class="toggleModal" data-show="modalLogin" style="background:none;border:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0;font-size:13px">Inicia sesión aquí</button>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <p>© <strong>Intellicode</strong> — Proyectos para clientes</p>
-  </footer>
-
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // Cargar componentes automáticamente
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.dataset.include)
+        .then(r => r.text())
+        .then(html => el.outerHTML = html);
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<div id="modalRegister" class="modal hidden">
+  <div class="modal-card floating">
+    <button id="closeRegister" class="modal-close">×</button>
+    
+    <h3>Crear Cuenta</h3>
+    
+    <form id="registerForm" class="form">
+      <label>
+        <span>Nombre completo</span>
+        <input name="name" type="text" required placeholder="Juan Pérez">
+      </label>
+      
+      <label>
+        <span>Correo electrónico</span>
+        <input name="email" type="email" required placeholder="juan@ejemplo.com">
+      </label>
+      
+      <label>
+        <span>Contraseña</span>
+        <input name="password" type="password" required minlength="6" placeholder="Mínimo 6 caracteres">
+      </label>
+      
+      <label>
+        <span>Edad (opcional)</span>
+        <input name="age" type="number" min="13" max="100" placeholder="25">
+      </label>
+      
+      <label>
+        <span>Ocupación (opcional)</span>
+        <input name="occupation" type="text" placeholder="Desarrollador, Diseñador...">
+      </label>
+      
+      <label>
+        <span>Rol deseado</span>
+        <select name="role" required>
+          <option value="buyer">Comprador</option>
+          <option value="seller">Vendedor (requiere membresía)</option>
+          <option value="admin">Admin (código requerido)</option>
+        </select>
+      </label>
+      
+      <label>
+        <span>Código Admin (solo si eres admin)</span>
+        <input name="adminCode" type="password" placeholder="intellicode-admin-2025">
+      </label>
+      
+      <button type="submit" class="btn primary large">
+        Crear cuenta
+      </button>
+    </form>
+    
+    <div style="text-align:center; margin-top:24px; font-size:14px;">
+      <span style="color:var(--muted)">¿Ya tienes cuenta? </span>
+      <button type="button" class="toggleModal" data-show="modalLogin"
+              style="background:none; border:none; color:var(--accent); font-weight:600; cursor:pointer; text-decoration:underline;">
+        Inicia sesión aquí
+      </button>
+    </div>
+  </div>
+</div>

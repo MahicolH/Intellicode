@@ -1,0 +1,39 @@
+<!-- components/panels/admin-panel.html -->
+<div id="adminView" class="panel hidden">
+  <div class="panel-header">
+    <h2>Panel de Administrador</h2>
+    <button id="logoutBtn3" class="btn small danger">Cerrar sesión</button>
+  </div>
+
+  <div class="seller-grid" style="margin-top:32px; gap:24px;">
+    <div class="card">
+      <h3>Estadísticas Generales</h3>
+      <div class="profile-stats">
+        <div class="stat"><span>Usuarios registrados</span><strong id="totalUsers">0</strong></div>
+        <div class="stat"><span>Proyectos publicados</span><strong id="totalProjects">0</strong></div>
+        <div class="stat"><span>Vendedores activos</span><strong id="totalSellers">0</strong></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Gestión Rápida</h3>
+      <p>Pronto podrás aprobar proyectos, gestionar membresías y más.</p>
+      <button class="btn primary large" style="width:100%; margin-top:16px;" disabled>
+        Funcionalidad en desarrollo
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Subir Proyecto (como Admin)</h3>
+      <form id="adminUploadForm" class="form">
+        <label>Título <input name="title" required></label>
+        <label>Categoría <input name="category" required></label>
+        <label>Precio USD <input name="price" type="number" required></label>
+        <label>ZIP <input name="zip" type="file" accept=".zip" required></label>
+        <button type="submit" class="btn primary large" style="width:100%; margin-top:12px;">
+          Publicar como Admin
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.form { display: flex; flex-direction: column; gap: 12px; }
+.form label { display: flex; flex-direction: column; font-size: 14px; }
+.form input, .form textarea, .form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  margin-top: 4px;
+}
+.form textarea { min-height: 100px; resize: vertical; }

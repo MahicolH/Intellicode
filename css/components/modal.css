@@ -1,0 +1,82 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 16px; /* ← Esto es clave para pantallas pequeñas */
+  box-sizing: border-box;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 440px;           /* ← Reducido de 520px a 440px */
+  max-height: 90vh;           /* ← Nunca sobrepase el 90% de la pantalla */
+  background: var(--card);
+  padding: 28px 24px;         /* ← Menos padding interno */
+  border-radius: 18px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow-y: auto;           /* ← Scroll interno si es necesario */
+  animation: float 5s ease-in-out infinite;
+}
+
+/* En pantallas muy pequeñas, aún más compacto */
+@media (max-width: 480px) {
+  .modal-card {
+    max-width: 380px;
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}
+
+/* Formulario más compacto */
+.form label {
+  display: block;
+  margin-bottom: 14px;        /* ← Menos espacio entre campos */
+}
+
+.form label span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 11px 14px;         /* ← Input más delgado */
+  border-radius: 10px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  font-size: 14.5px;
+}
+
+/* Botón principal */
+.form .btn.primary.large {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+/* Título más pequeño */
+.modal-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+}
+
+/* Texto final más compacto */
+.modal-card > div:last-child {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

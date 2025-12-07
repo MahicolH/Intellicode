@@ -1,0 +1,74 @@
+<!-- components/panels/seller-panel.html -->
+<div id="sellerView" class="panel hidden">
+  <div class="panel-header">
+    <h2>Panel de Vendedor <span class="badge">Requiere membresía</span></h2>
+    <button id="logoutBtn2" class="btn small danger">Cerrar sesión</button>
+  </div>
+
+  <div class="seller-grid">
+    <!-- Perfil bonito -->
+    <div class="card seller-profile-card">
+      <div class="profile-header">
+        <img id="sellerPhoto" src="" alt="Tu foto" class="avatar large hidden">
+        <div>
+          <h3 id="sellerNameDisplay"></h3>
+          <p id="sellerOccupation" class="muted"></p>
+        </div>
+      </div>
+
+      <div class="profile-stats">
+        <div class="stat">
+          <span class="label">Experiencia</span>
+          <strong id="sellerExperienceDisplay">Sin información</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Ganancias totales</span>
+          <strong id="sellerTotalEarnings" class="accent">$0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Proyectos publicados</span>
+          <strong id="sellerProjectsCount">0</strong>
+        </div>
+      </div>
+
+      <button id="editSellerProfileBtn" class="btn primary large" style="width:100%; margin-top:16px;">
+        Editar Perfil
+      </button>
+    </div>
+
+    <!-- Formulario de subir proyecto -->
+    <div class="card">
+      <h4>Publicar Proyecto</h4>
+      <form id="sellerUploadForm" class="form">
+        <label>Categoría
+          <select name="category" required>
+            <option value="">Seleccionar...</option>
+            <option>Web App</option>
+            <option>Móvil</option>
+            <option>Backend</option>
+            <option>Diseño</option>
+            <option>Otros</option>
+          </select>
+        </label>
+        <label>Título <input name="title" required placeholder="Ej: Sistema de inventario"></label>
+        <label>Descripción <textarea name="description" required rows="3"></textarea></label>
+        <label>Precio (USD) <input name="price" type="number" min="5" required></label>
+        <label>ZIP <input name="zip" type="file" accept=".zip" required></label>
+        <label>Imágenes/Video <input name="media" type="file" multiple></label>
+        <button type="submit" class="btn primary large" style="width:100%; margin-top:12px;">
+          Publicar Proyecto
+        </button>
+      </form>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="card">
+      <h4>Resumen</h4>
+      <div class="profile-stats">
+        <div class="stat"><span>Ganancias (30 días)</span><strong id="sellerEarnings">$0</strong></div>
+        <div class="stat"><span>Proyectos publicados</span><strong id="sellerCount">0</strong></div>
+        <div class="stat"><span>En revisión</span><strong>0</strong></div>
+      </div>
+    </div>
+  </div>
+</div>

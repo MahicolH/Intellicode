@@ -1,0 +1,8 @@
+.badge {
+  background: linear-gradient(90deg, #0ea5a4, #7c3aed);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
